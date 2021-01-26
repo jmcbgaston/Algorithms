@@ -1,5 +1,9 @@
 // time o(n)
+    // traverse the whole tree
+
 // space o(n)
+    // worst case o(n) because of tree shape
+    // on a balanced tree we'd see o(log n) because we only need to keep track of a portion of the tree
 
 function branchSums(root) {
     // reframe the problem
