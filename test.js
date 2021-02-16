@@ -1,53 +1,140 @@
-function scatterPalindrome(strToEvaluate) {
-    
-    let runningSum = 0
+// function solution(S, K) {
+//     let daysHash = {
+//         'Mon': 1, 
+//         'Tue': 2, 
+//         'Wed': 3, 
+//         'Thu': 4, 
+//         'Fri': 5, 
+//         'Sat': 6,
+//         'Sun': 7
+//     }
 
-    strToEvaluate.forEach(str => {
-        runningSum += countPalindromes(str)
-    })
+//     let posHash = {
+//         1: 'Mon', 
+//         2: 'Tue', 
+//         3: 'Wed',
+//         4: 'Thu', 
+//         5: 'Fri', 
+//         6: 'Sat',
+//         7: 'Sun'
+//     }
 
-    return runningSum
-}
+//     let negHash = {
+//         6: 'Mon', 
+//         5: 'Tue', 
+//         4: 'Wed',
+//         3: 'Thu', 
+//         2: 'Fri', 
+//         1: 'Sat',
+//         0: 'Sun'
+//     }
 
-function countPalindromes(str) {
+//     let modulo = (daysHash[S] + K) % 7
 
-    let subStrings = []
-        for (let i = 0; i < str.length; i++) {
-            subStrings.push(str[i])
-            for (let j = 0; j < str.length; j++) {
-                subStrings.push((str.slice(i, j + 1)))
-            }
-        }
+//     if (modulo > 0) {
+//         return posHash[modulo]
+//     } else {
+//         return negHash[Math.abs(modulo)]
+//     }
+// }
 
-    let filtered = []
-        subStrings.forEach(sub => {
-            if (!filtered.includes(sub)) {
-                filtered.push(sub)
-            }
-        })
+// let S = 'Mon'
+// let K = -1
 
-    let count = 0
-        filtered.forEach(ele => {
-            if (isPalindrome(ele)) {
-                count += 1
-            }
-        })
+// console.log(solution(S, K))
 
-    return count
-}
 
-function isPalindrome(str) {
-    let reversed = ''
 
-    for (let i = str.length - 1; i >= 0; i--) {
-        reversed += str[i]
-    }
 
-    return reversed === str
-}
 
-let str = ['hello', 'jazz']
-// let str = 'hello'
 
-console.log(scatterPalindrome(str))
+// function solution(S) {
+//     let subStrings = []
+
+//     for (let i = 0; i < S.length; i++) {
+//         for (let j = 1; j < S.length; j++) {
+//             subStrings.push(S.slice(i,j+1))
+//         }
+
+//     }
+
+//     let lengths = []
+
+//     subStrings.forEach(sub => {
+//         if (validSubString(sub)) {
+//             lengths.push(sub.length)
+//         }
+//     })
+
+//     console.log(lengths)
+//     let sorted = lengths.sort()
+//     return sorted[0]
+// }
+
+// function validSubString(sub) {
+//     let split = sub.split('')
+
+//     console.log(split)
+//     split.forEach(ele => {
+
+//         let up = split.includes(ele.toUpperCase())
+//         let low = split.includes(ele.toLowerCase())
+        
+//         if ((up&&low) === false) return false
+//     })
+
+//     return true
+// }
+
+// let S = 'abA'
+// console.log(validSubString(S))
+// console.log(solution(S))
+
+
+
+
+
+
+
+
+
+
+
+
+// // function solution(N) {
+
+// //     let abs = Math.abs(N)
+// //     let strNum = JSON.stringify(abs)
+// //     let newNum = ''
+
+// //     if (N < 0) {
+// //         return parseInt('-' + '5' + strNum)
+// //     }
+
+// //     for (let i = 0; i < strNum.length; i++) {
+// //         let currNum = parseInt(strNum[i])
+
+// //         if (currNum <= 5) {
+
+// //             newNum += '5' + currNum
+
+// //             // return parseInt(strNum.slice(0, i) + '5' + strNum.slice(i, strNum.length))
+// //             // return parseInt(newNum)
+// //         } else {
+
+// //             newNum += currNum
+// //             // return parseInt(strNum + '5')
+
+// //             // console.log(strNum)
+            
+// //             // return parseInt(newNum)
+// //         }
+// //     }
+
+// //     return parseInt(newNum)
+// // }
+
+// // let N = -999
+
+// // console.log(solution(N))
 
