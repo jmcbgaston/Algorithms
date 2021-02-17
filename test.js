@@ -101,40 +101,63 @@
 
 
 
-// // function solution(N) {
+function solution(N) {
 
-// //     let abs = Math.abs(N)
-// //     let strNum = JSON.stringify(abs)
-// //     let newNum = ''
+    let abs = Math.abs(N)
+    let strNum = JSON.stringify(abs)
+    let newNum = ''
 
-// //     if (N < 0) {
-// //         return parseInt('-' + '5' + strNum)
-// //     }
+    if (N < 0) {
+        return parseInt('-' + '5' + strNum)
+    }
 
-// //     for (let i = 0; i < strNum.length; i++) {
-// //         let currNum = parseInt(strNum[i])
+    for (let i = 0; i < strNum.length; i++) {
+        let currNum = parseInt(strNum[i])
 
-// //         if (currNum <= 5) {
-
-// //             newNum += '5' + currNum
-
-// //             // return parseInt(strNum.slice(0, i) + '5' + strNum.slice(i, strNum.length))
-// //             // return parseInt(newNum)
-// //         } else {
-
-// //             newNum += currNum
-// //             // return parseInt(strNum + '5')
-
-// //             // console.log(strNum)
+        if (currNum <= 5) {
+            return parseInt(strNum.slice(0, i) + '5' + strNum.slice(i, strNum.length))
             
-// //             // return parseInt(newNum)
-// //         }
-// //     }
+        } else {
+            return parseInt(strNum + '5')
 
-// //     return parseInt(newNum)
-// // }
+        }
+    }
 
-// // let N = -999
+    return parseInt(newNum)
+}
 
-// // console.log(solution(N))
+
+
+// function biggestWithFive(num){             //1000 // 785 
+// 	let stringNum = JSON.stringify(num);  // “5 1000”
+// 	let splitNum = stringNum.split('');   //[1,0,0,0]
+// 	let answer = [];
+
+// 	splitNum.forEach((num, idx) => { // 10, //71
+// 		let number = []; // [7]
+
+// 		if (num > 5){ //7100
+// 			number.push(num) 
+
+// 			for (let i = 1; i < splitNum.length; i++){
+//                 if (splitNum[i] < 5) {
+//                     return parseInt(splitNum.join('').slice(0, i) + '5' + splitNum.slice(i,  splitNum.length - 1));
+//                 } 
+//             }	
+	
+//         }  else {
+//             return parseInt(splitNum.unshift(5).join(''));
+//         }
+//     })  
+// 	// JSON.stringify(num)
+// }
+
+let num = -9
+console.log(solution(num))
+
+
+
+
+
+
 
