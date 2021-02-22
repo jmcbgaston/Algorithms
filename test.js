@@ -1,41 +1,30 @@
-// function solution(S) {
-//     let subStrings = []
+function escapeRoomKeypads(wordlist, keypads) {
+    let charSet = {}
+        wordlist.forEach(word => {
+            let set = new Set(word)
+            let array = Array.from(set)
+            let string = array.join('')
+            charSet[string] ? charSet[string] += 1 : charSet[string] = 1
+        })
+    
+    let counts = []
+        keypads.forEach(keypad => {
+            let num = 0
+            let kpSet = new Set(keypad)
 
-//     for (let i = 0; i < S.length; i++) {
-//         for (let j = 1; j < S.length; j++) {
-//             subStrings.push(S.slice(i,j+1))
-//         }
+            for (const [key, value] of Object.entries(charSet)) {
+                if (key.includes(keypad[0])) {
+                    if (key.split('').every(val => kpSet.has(val))) {
+                        num += value
+                    }
+                }
+            }
+            counts.push(num)
+        })
 
-//     }
+    return counts
+}
 
-//     let lengths = []
-
-//     subStrings.forEach(sub => {
-//         if (validSubString(sub)) {
-//             lengths.push(sub.length)
-//         }
-//     })
-
-//     console.log(lengths)
-//     let sorted = lengths.sort()
-//     return sorted[0]
-// }
-
-// function validSubString(sub) {
-//     let split = sub.split('')
-
-//     console.log(split)
-//     split.forEach(ele => {
-
-//         let up = split.includes(ele.toUpperCase())
-//         let low = split.includes(ele.toLowerCase())
-        
-//         if ((up&&low) === false) return false
-//     })
-
-//     return true
-// }
-
-// let S = 'abA'
-// console.log(validSubString(S))
-// console.log(solution(S))
+let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
+let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
+console.log(escapeRoomKeypads(wordlist, keypads))
