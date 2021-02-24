@@ -99,33 +99,64 @@
 // let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
 // console.log(escapeRoomKeypads(wordlist, keypads))
 
-function escapeRoomKeypads(wordlist, keypads) {
-    let charSet = {}
-        wordlist.forEach(word => {
-            let set = new Set(word)
-            let array = Array.from(set)
-            let string = array.join('')
-            charSet[string] ? charSet[string] += 1 : charSet[string] = 1
-        })
-    
-    let counts = []
-        keypads.forEach(keypad => {
-            let num = 0
-            let kpSet = new Set(keypad)
+// function numKeypadSolutions(wordlist, keypads) {
+//     let charSet = {};
+//         wordlist.forEach(word => {
+//             let string = Array.from(new Set(word)).join('');
+//             charSet[string] ? charSet[string] += 1 : charSet[string] = 1;
+//         })
 
-            for (const [key, value] of Object.entries(charSet)) {
-                if (key.includes(keypad[0])) {
-                    if (key.split('').every(val => kpSet.has(val))) {
-                        num += value
-                    }
-                }
-            }
-            counts.push(num)
-        })
+//     let counts = [];
+//         keypads.forEach(keypad => {
+//             let keypadNums = 0;
 
-    return counts
-}
+//             for (let i = 0; i < keypad.length; i++) {
+//                 if (word.includes(keypad[i])) {
+//                     keypadNums += 1
+//                 }
+//             }
+
+//             // for (const [key, value] of Object.entries(charSet)) {
+//             //     if (key.includes(keypad[0])) {
+//             //         if (key.split('').every(val => keypad.includes(val))) {
+//             //             num += value
+//             //         }
+//             //     }
+//             // }
+            
+//             counts.push(num)
+//         })
+
+//     return counts
+// }
+
+// function numKeypadSolutions(wordlist, keypads) {    
+//     keypads.forEach((keypad, idx) => {
+//         let num = 0;        
+//         for (const word of wordlist) {
+//             if (word.includes(keypad[0])) {
+//                 if (word.split('').every(val => keypad.includes(val))) {
+//                     num += 1
+//                 }
+//             }
+//         }
+//         keypads[idx] = num
+//     })
+//     return keypads
+// }
+
+
 
 let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
+// AELP: 1
+// AELPS: 2
+// A E L P S
+// - - - 1 2
+
+// AELWXYZ
+
+
+
+
 let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
-console.log(escapeRoomKeypads(wordlist, keypads))
+console.log(numKeypadSolutions(wordlist, keypads))
