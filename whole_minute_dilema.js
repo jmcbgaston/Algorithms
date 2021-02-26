@@ -1,7 +1,4 @@
-// this is too slow
-
 function playlist(songs) {
-
     let count = 0
 
     for (let i = 0; i < (songs.length - 1); i++) {

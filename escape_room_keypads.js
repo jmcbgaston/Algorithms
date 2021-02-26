@@ -148,15 +148,5 @@
 
 
 let wordlist = ['APPLE', 'PLEAS', 'PLEASE']
-// AELP: 1
-// AELPS: 2
-// A E L P S
-// - - - 1 2
-
-// AELWXYZ
-
-
-
-
 let keypads = ['AELWXYZ', 'AELPXYZ', 'AELPSXY', 'SAELPRT', 'XAEBKSY']
 console.log(numKeypadSolutions(wordlist, keypads))
