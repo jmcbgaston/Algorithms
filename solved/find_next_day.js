@@ -39,6 +39,6 @@ function solution(S, K) {
 }
 
 let S = 'Mon'
-let K = -1
+let K = 4
 
 console.log(solution(S, K))
