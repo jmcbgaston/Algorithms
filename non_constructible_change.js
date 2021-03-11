@@ -11,7 +11,7 @@ function nonConstructibleChange(coins) {
     })
 
     return currChange + 1
-}
+} 
 
 
 let coins = [5,7,1,1,2,3,22]
