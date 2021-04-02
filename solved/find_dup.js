@@ -1,5 +1,5 @@
 function findDuplicate(nums) {
-=    let tort = nums[0]
+    let tort = nums[0]
     let hare = nums[0]
     
     while (true) {

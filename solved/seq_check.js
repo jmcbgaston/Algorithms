@@ -1,16 +1,18 @@
 function isValidSubsequence(array, sequence) {
 	
-	let seqCheck = []
+	let seqCheck = 0
 	let j = 0
 	
 	for (let i = 0; i < array.length; i++) {
 		if (array[i] === sequence[j]) {
 			j++
-			seqCheck.push(array[i])
+			seqCheck += 1
 		}
 	}
 	
-	return seqCheck.length === sequence.length
+	return seqCheck === sequence.length
 }
 
-exports.isValidSubsequence = isValidSubsequence;
+let array = [1,2,3,4,5,6]
+let sequence = [2,4]
+console.log(isValidSubsequence(array, sequence))

@@ -1,20 +1,24 @@
+// EFFICINT
+// T: O(nlog(n))
+// S: O(1)
+
 function twoNumberSum(array, targetSum) {
-	
-	for (let i = 0; i < array.length; i++) {
-		for (let j = 1; j < array.length; j++) {
-			if ( ((array[i] + array[j]) === targetSum) && i !== j ) {
-				return [ array[i], array[j] ]
-			}
+	array.sort((a,b) => a-b) // O(nlog(n))
+	let left = 0
+	let right = array.length - 1
+	while (left < right) {
+		let currSum = array[left] + array[right]
+		if (currSum === targetSum) {
+			return [array[left], array[right]]
+		} else if (currSum < targetSum) {
+			left++
+		} else if (currSum > targetSum) {
+			right--
 		}
- 	}
-	
-	return []
-	
+	}
+	return[];
 }
 
-exports.twoNumberSum = twoNumberSum;
-
-// NOTES:
-
-// compare num1 and num2
-// if pair === target, return in arr
+let array = [1, 2, 3, 5, -7, 10]
+let targetSum = 13
+console.log(twoNumberSum(array, targetSum))

@@ -1,33 +1,38 @@
-// time o(n)
-    // traverse the whole tree
+// avg: O(n) time | O(n) space
 
-// space o(n)
-    // worst case o(n) because of tree shape
-    // on a balanced tree we'd see o(log n) because we only need to keep track of a portion of the tree
-
-function branchSums(root) {
-    // reframe the problem
-    let sums = [];
-    calcBranchSums(root, 0, sums);
-
-    // return array of sums
-    return sums;
+class BinaryTree {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
 }
 
-function calcBranchSums(node, runningSum, sums) {
-    // if node.value === null, return
-    if (!node) return;
+function branchSums(root) {
+    
+    // set up a sums array
+    let sums = []
+    // use a helper to calc sums
+    calcSums(root, 0, sums)
+        // helper can push sum into sums array
+    // return an array of sums
+    return sums
+    
+}
 
-    // keep track of the running sum by adding passed in argument as well as the current node's value
-    let newRunningSum = runningSum + node.value
-
-    // check to see if the node is a leaf node | if yes then push running sum into sums array
+function calcSums(node, runSum, sums) {
+    
+    // if node is null, return
+    if (!node) return
+    // set up a variable that augments the sum with runSUm + node.val
+    let newRunSum = node.value + runSum
+    // if no more children, push the new run sum into sums and return out of recurse
     if (!node.left && !node.right) {
-        sums.push(newRunningSum);
-			return;
+        sums.push(newRunSum)
+        return
     }
-
-    // recursive call will handle tracking and itteration till the end
-    calcBranchSums(node.left, newRunningSum, sums);
-    calcBranchSums(node.right, newRunningSum, sums);
+    
+    // recurse left and right
+    calcSums(node.left, newRunSum, sums)
+    calcSums(node.right, newRunSum, sums)
 }
