@@ -7,7 +7,7 @@ var reorderList = function(head) {
       curr = curr.next;
   }
   
-  for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length; i++) {
       let j = arr.length-i-1;
       if (i >= j) {arr[i].next = null; break;}
       arr[i].next = arr[j];
