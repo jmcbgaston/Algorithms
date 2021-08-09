@@ -1,29 +1,22 @@
 
-function minimumSwaps(brackets) {
-  // )()(())(
-  // |
-  // [ ) ]
-  // is stack valid: false
-  // check right side
-  // right = ( => swap
-  // (()(()))
-  //       |
-  // [  ]
-  // return
-  
+function balancedString(s) {
   let stack = [];
-  let endI = brackets.length - 1;
-  for (let i = 0; i < end; i++) {
-      let curr = brackets[i];
-      
-      if (curr === '(') { // case: (
-          stack.push('(')
-      } else { // case: )
-          if (stack[stack.length-1] === '(') { // case: last ele in stack is (
-              stack[stack.length-1].pop(); // collapse = [ () ] = []
-          } else { // case: last ele in stack is )
-              
-          }
+    
+  const map = {
+      "(": ")",
+      "[": "]",
+      "{": "}"
+  }
+  
+  for (let i = 0; i < s.length; i++) {
+      if ( map[ s[i] ] ) {
+          stack.push(s[i]);
+      } else {
+          if ( s[i] !== map[stack.pop()] ) return false; 
       }
   }
+  
+  return !(stack.length > 0);
 }
+
+console.log(balancedString("({}{))({)}}{}{}{"))

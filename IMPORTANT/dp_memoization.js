@@ -44,8 +44,8 @@ gridtaveler = (m,n, memo={}) => {
   const key = m + "," + n;
 
   if (key in memo) return memo[key];
-  if (m === 1 && n === 1) return 1;
   if (m === 0 || n === 0) return 0;
+  if (m === 1 && n === 1) return 1;
 
   memo[key] = gridtaveler(m-1, n, memo) + gridtaveler(m, n-1, memo);
   return memo[key];
@@ -56,7 +56,7 @@ gridtaveler = (m,n, memo={}) => {
 // console.log(gridtaveler(1,1)); // 1
 // console.log(gridtaveler(1,2)); // 1
 // console.log(gridtaveler(2,1)); // 1
-console.log(gridtaveler(2,2)); // 2
+// console.log(gridtaveler(2,2)); // 2
 //            2 2
 //
 //      1 2         2 1
@@ -133,8 +133,8 @@ canSum = (targetSum, numbers, memo={}) => {
 //   return null
 // }
 
-// time: O(n*m*m) = O(n*m^2)
-// space: O(m*m) = O(m^2)
+// time: O(n*m^2)
+// space: O(m^2)
 howSum = (targetSum, numbers, memo={}) => {
   if (targetSum in memo) return memo[targetSum];
   if (targetSum === 0) return [];
@@ -143,7 +143,7 @@ howSum = (targetSum, numbers, memo={}) => {
   for (let num of numbers) {
     const remainder = targetSum - num;
     const remResult = howSum(remainder, numbers, memo);
-    if (remResult) {
+    if (remResult !== null) {
       memo[targetSum] = [...remResult, num]
       return memo[targetSum];
     }
@@ -157,7 +157,7 @@ howSum = (targetSum, numbers, memo={}) => {
 // console.log(howSum(7, [2,4])) // null 
 // console.log(howSum(7, [5,3,4,7])) // [4,3]
 // console.log(howSum(8, [2,3,5])) // [2,2,2,2]
-// console.log(howSum(300, [7,14])) // [2,2,2,2]
+// console.log(howSum(300, [7,14])) // null
 
 // OPTIMIZATION PROBLEM
 // What is the best way to do it?

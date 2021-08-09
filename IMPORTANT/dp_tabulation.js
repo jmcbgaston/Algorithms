@@ -54,8 +54,8 @@ gridtaveler = (m,n) => {
       const current = table[i][j];
 
       // as long as we are in the bounds of our grid,
-      if (j+1 <= n) table[i][j+1] += current; // add curr to right
       if (i+1 <= m) table[i+1][j] += current; // add curr to down
+      if (j+1 <= n) table[i][j+1] += current; // add curr to right
     }
   }
 
@@ -237,7 +237,6 @@ howSum = (targetSum, numbers) => {
     }
   }
 
-  // console.log(table)
   return table[targetSum]
 }
 

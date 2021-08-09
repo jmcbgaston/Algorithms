@@ -1,3 +1,5 @@
+
+
 function efficientJanitor(weight) {
 
     // sort the weights

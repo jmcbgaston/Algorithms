@@ -1,3 +1,5 @@
+// solution is too slow
+
 function playlist(songs) {
     let count = 0
 
